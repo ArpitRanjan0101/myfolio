@@ -19,9 +19,17 @@ router.post("/login", async (req, res) => {
     return res.status(401).json({ message: "Invalid credentials" });
   }
 
-  const adminUser = await AdminUser.findOne({ email: normalizedEmail });
+  let adminUser = await AdminUser.findOne({ email: normalizedEmail });
   if (!adminUser) {
-    return res.status(401).json({ message: "Invalid credentials" });
+    const envPassword = process.env.ADMIN_PASSWORD || "";
+    if (!envPassword || normalizedEmail !== ADMIN_EMAIL) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+    const passwordHash = await bcrypt.hash(envPassword, 10);
+    adminUser = await AdminUser.create({
+      email: normalizedEmail,
+      passwordHash
+    });
   }
 
   const isMatch = await bcrypt.compare(password, adminUser.passwordHash);
