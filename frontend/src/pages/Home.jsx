@@ -16,16 +16,28 @@ function RightNav({ activeId }) {
         <a
           key={item.id}
           href={`#${item.id}`}
-          className={`group flex items-center rounded-full border px-2 py-2 text-xs font-semibold uppercase tracking-wide transition ${
+          className={`group flex items-center justify-end gap-2 rounded-full border px-2 py-2 text-xs font-semibold uppercase tracking-wide transition-all duration-300 ${
             activeId === item.id
-              ? "border-amber-400 bg-amber-400/10 text-amber-300"
-              : "border-white/10 text-slate-200 hover:border-amber-300 hover:text-amber-200"
+              ? "border-amber-400 bg-amber-400 text-slate-900 shadow-lg shadow-amber-400/20"
+              : "border-white/10 bg-white/5 text-slate-200 hover:border-amber-300 hover:bg-amber-400 hover:text-slate-900"
           }`}
         >
-          <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-xs">
+          <span
+            className={`inline-flex h-10 w-10 items-center justify-center rounded-full border text-xs transition-all duration-300 ${
+              activeId === item.id
+                ? "border-amber-300 bg-amber-500 text-slate-900"
+                : "border-white/10 bg-slate-900/40 text-slate-100 group-hover:border-amber-300 group-hover:bg-amber-500 group-hover:text-slate-900"
+            }`}
+          >
             {item.label[0]}
           </span>
-          <span className="max-w-0 overflow-hidden whitespace-nowrap pr-0 opacity-0 transition-all duration-200 group-hover:max-w-[160px] group-hover:pr-3 group-hover:opacity-100">
+          <span
+            className={`max-w-0 overflow-hidden whitespace-nowrap pr-0 opacity-0 transition-all duration-300 ${
+              activeId === item.id
+                ? "max-w-[160px] pr-3 opacity-100"
+                : "group-hover:max-w-[160px] group-hover:pr-3 group-hover:opacity-100"
+            }`}
+          >
             {item.label}
           </span>
         </a>
