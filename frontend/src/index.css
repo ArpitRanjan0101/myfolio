@@ -17,3 +17,13 @@ body {
   margin: 0;
   background-color: #020617;
 }
+
+body,
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(250, 204, 21, 0.35);
+  color: #0b0b0b;
+}
