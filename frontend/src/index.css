@@ -12,6 +12,8 @@
   --card-bg: rgba(24, 24, 27, 0.4);
   --card-border: rgba(39, 39, 42, 0.9);
   --hero-card-bg: rgba(9, 9, 11, 0.8);
+  --pill-icon: #e4e4e7;
+  --pill-icon-hover: #facc15;
 }
 
 @tailwind base;
@@ -29,6 +31,8 @@
   --card-bg: rgba(255, 255, 255, 0.85);
   --card-border: rgba(148, 163, 184, 0.5);
   --hero-card-bg: rgba(255, 255, 255, 0.92);
+  --pill-icon: #64748b;
+  --pill-icon-hover: #d97706;
 }
 
 * {
