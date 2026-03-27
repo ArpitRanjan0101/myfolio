@@ -25,7 +25,9 @@ function RightNav({ activeId }) {
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-xs">
             {item.label[0]}
           </span>
-          <span className="hidden xl:block">{item.label}</span>
+          <span className="w-0 overflow-hidden opacity-0 transition-all duration-200 group-hover:w-auto group-hover:opacity-100">
+            {item.label}
+          </span>
         </a>
       ))}
     </div>
@@ -93,6 +95,7 @@ export default function Home() {
   const [projects, setProjects] = useState([]);
   const [clientProjects, setClientProjects] = useState([]);
   const [activeId, setActiveId] = useState("home");
+  const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
     let isMounted = true;
@@ -139,23 +142,114 @@ export default function Home() {
   const socials = useMemo(() => site?.socialLinks || [], [site]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 text-slate-100">
+    <div
+      className={`min-h-screen ${
+        theme === "dark"
+          ? "bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 text-slate-100"
+          : "bg-gradient-to-br from-amber-50 via-white to-slate-100 text-slate-900"
+      }`}
+    >
       <RightNav activeId={activeId} />
+      <button
+        type="button"
+        onClick={() =>
+          setTheme((current) => (current === "dark" ? "light" : "dark"))
+        }
+        className={`fixed right-6 top-6 z-20 hidden h-12 w-12 items-center justify-center rounded-full border shadow-lg transition lg:flex ${
+          theme === "dark"
+            ? "border-white/10 bg-white/10 text-amber-200 hover:border-amber-300"
+            : "border-slate-200 bg-white text-slate-700 hover:border-amber-400"
+        }`}
+        aria-label="Toggle theme"
+      >
+        {theme === "dark" ? (
+          <svg
+            viewBox="0 0 24 24"
+            className="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+          >
+            <path d="M12 3a1 1 0 0 1 1 1v1.5a1 1 0 0 1-2 0V4a1 1 0 0 1 1-1zM12 18.5a1 1 0 0 1 1 1V21a1 1 0 1 1-2 0v-1.5a1 1 0 0 1 1-1zM4.5 11a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2h1.5zM21 11a1 1 0 0 1 0 2h-1.5a1 1 0 1 1 0-2H21zM6.2 6.2a1 1 0 0 1 1.4 0l1.1 1.1a1 1 0 1 1-1.4 1.4L6.2 7.6a1 1 0 0 1 0-1.4zM16.3 16.3a1 1 0 0 1 1.4 0l1.1 1.1a1 1 0 0 1-1.4 1.4l-1.1-1.1a1 1 0 0 1 0-1.4zM6.2 17.8a1 1 0 0 1 0-1.4l1.1-1.1a1 1 0 0 1 1.4 1.4l-1.1 1.1a1 1 0 0 1-1.4 0zM16.3 7.7a1 1 0 0 1 0-1.4l1.1-1.1a1 1 0 1 1 1.4 1.4l-1.1 1.1a1 1 0 0 1-1.4 0z" />
+            <circle cx="12" cy="12" r="3.5" />
+          </svg>
+        ) : (
+          <svg
+            viewBox="0 0 24 24"
+            className="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+          >
+            <path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a7 7 0 1 0 11 11z" />
+          </svg>
+        )}
+      </button>
 
       <section id="home" className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.15),transparent_50%)]" />
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div
+          className={`absolute inset-0 ${
+            theme === "dark"
+              ? "bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.15),transparent_50%)]"
+              : "bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.25),transparent_45%)]"
+          }`}
+        />
+        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <div className="relative">
+            <div
+              className={`absolute -left-6 -top-6 h-20 w-24 rounded-[28px] ${
+                theme === "dark" ? "bg-amber-400" : "bg-amber-300"
+              }`}
+            />
+            <div
+              className={`relative overflow-hidden rounded-[36px] border p-4 ${
+                theme === "dark"
+                  ? "border-white/10 bg-black/40"
+                  : "border-amber-200/60 bg-white/80"
+              }`}
+            >
+              <div className="aspect-[4/5] overflow-hidden rounded-[28px] bg-black">
+                {site?.heroImageUrl ? (
+                  <img
+                    src={site.heroImageUrl}
+                    alt="Portrait"
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center text-sm text-slate-400">
+                    Add hero image in admin panel
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
           <div>
-            <p className="text-xs uppercase tracking-[0.5em] text-amber-200/80">
+            <p
+              className={`text-xs uppercase tracking-[0.5em] ${
+                theme === "dark" ? "text-amber-200/80" : "text-amber-600"
+              }`}
+            >
               Welcome
             </p>
-            <h1 className="mt-6 text-4xl font-semibold text-white sm:text-6xl">
+            <h1
+              className={`mt-6 text-4xl font-semibold sm:text-6xl ${
+                theme === "dark" ? "text-white" : "text-slate-900"
+              }`}
+            >
               {site?.heroName || "Your Name"}
             </h1>
-            <h2 className="mt-3 text-2xl font-semibold text-amber-300 sm:text-3xl">
+            <h2
+              className={`mt-3 text-2xl font-semibold sm:text-3xl ${
+                theme === "dark" ? "text-amber-300" : "text-amber-600"
+              }`}
+            >
               {site?.heroTitle || "Full Stack Developer"}
             </h2>
-            <p className="mt-6 max-w-xl text-lg text-slate-300">
+            <p
+              className={`mt-6 max-w-xl text-lg ${
+                theme === "dark" ? "text-slate-300" : "text-slate-600"
+              }`}
+            >
               {site?.heroSubtitle ||
                 "Designing delightful, high-performance digital products."}
             </p>
@@ -171,29 +265,15 @@ export default function Home() {
                   href={site.resumeUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:border-amber-300 hover:text-amber-200"
+                  className={`rounded-full border px-6 py-3 text-sm font-semibold transition ${
+                    theme === "dark"
+                      ? "border-white/15 text-white hover:border-amber-300 hover:text-amber-200"
+                      : "border-slate-200 text-slate-700 hover:border-amber-400 hover:text-amber-700"
+                  }`}
                 >
                   Download Resume
                 </a>
               ) : null}
-            </div>
-          </div>
-          <div className="relative">
-            <div className="absolute -left-6 -top-6 h-20 w-24 rounded-[28px] bg-amber-400" />
-            <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-black/40 p-4">
-              <div className="aspect-[4/5] overflow-hidden rounded-[28px] bg-black">
-                {site?.heroImageUrl ? (
-                  <img
-                    src={site.heroImageUrl}
-                    alt="Portrait"
-                    className="h-full w-full object-cover"
-                  />
-                ) : (
-                  <div className="flex h-full w-full items-center justify-center text-sm text-slate-400">
-                    Add hero image in admin panel
-                  </div>
-                )}
-              </div>
             </div>
           </div>
         </div>
