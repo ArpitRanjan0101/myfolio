@@ -16,16 +16,16 @@ function RightNav({ activeId }) {
         <a
           key={item.id}
           href={`#${item.id}`}
-          className={`group flex items-center gap-3 rounded-full border px-4 py-3 text-sm font-semibold uppercase tracking-wide transition ${
+          className={`group flex items-center rounded-full border px-2 py-2 text-xs font-semibold uppercase tracking-wide transition ${
             activeId === item.id
               ? "border-amber-400 bg-amber-400/10 text-amber-300"
               : "border-white/10 text-slate-200 hover:border-amber-300 hover:text-amber-200"
           }`}
         >
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-xs">
+          <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-xs">
             {item.label[0]}
           </span>
-          <span className="w-0 overflow-hidden opacity-0 transition-all duration-200 group-hover:w-auto group-hover:opacity-100">
+          <span className="max-w-0 overflow-hidden whitespace-nowrap pr-0 opacity-0 transition-all duration-200 group-hover:max-w-[160px] group-hover:pr-3 group-hover:opacity-100">
             {item.label}
           </span>
         </a>
@@ -195,11 +195,20 @@ export default function Home() {
           }`}
         />
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <div className="relative">
+          <div className="relative -mt-6">
             <div
-              className={`absolute -left-6 -top-6 h-20 w-24 rounded-[28px] ${
+              className={`absolute -left-8 -top-10 h-24 w-28 rounded-[28px] ${
                 theme === "dark" ? "bg-amber-400" : "bg-amber-300"
               }`}
+            />
+            <div
+              className={`absolute -left-10 -top-4 h-20 w-16 ${
+                theme === "dark" ? "bg-amber-400/90" : "bg-amber-300/90"
+              }`}
+              style={{
+                clipPath:
+                  "polygon(0 0, 100% 0, 70% 100%, 0 100%)"
+              }}
             />
             <div
               className={`relative overflow-hidden rounded-[36px] border p-4 ${
