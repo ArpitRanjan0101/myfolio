@@ -21,15 +21,15 @@ export default function FloatingNavItem({ item, Icon }) {
             animate="rest"
             whileHover="hover"
             variants={itemVariants}
-            transition={{ type: "spring", stiffness: 360, damping: 28 }}
-            className={`absolute right-0 top-0 h-12 rounded-full shadow-lg border border-zinc-700/60 transition-all duration-200 origin-right ${
+            transition={{ type: "tween", duration: 0.15, ease: "easeOut" }}
+            className={`absolute right-0 top-0 h-12 rounded-full shadow-lg border border-zinc-700/60 transition-all duration-150 origin-right flex items-center ${
               isActive ? "shadow-yellow-500/30" : ""
             }`}
           >
             <motion.span
               variants={labelVariants}
-              transition={{ duration: 0.15 }}
-              className="whitespace-nowrap pl-4 pr-14 text-sm font-semibold leading-none"
+              transition={{ duration: 0.12 }}
+              className="whitespace-nowrap pl-4 pr-14 text-sm font-semibold leading-none flex items-center h-full"
             >
               {item.name}
             </motion.span>
