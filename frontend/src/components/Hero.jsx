@@ -56,10 +56,10 @@ export default function Hero() {
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
             <Link
-              to="/projects"
+              to="/about"
               className="inline-flex items-center justify-center rounded-full bg-yellow-400 px-6 py-3 text-sm font-semibold text-black shadow-lg shadow-yellow-500/20"
             >
-              View Projects
+              More About Me
             </Link>
           </motion.div>
         </motion.div>
