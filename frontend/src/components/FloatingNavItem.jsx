@@ -2,8 +2,16 @@ import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const itemVariants = {
-  rest: { width: 48, backgroundColor: "rgba(39,39,42,0.9)", color: "#e4e4e7" },
-  hover: { width: 144, backgroundColor: "#facc15", color: "#0b0b0b" }
+  rest: {
+    width: 48,
+    backgroundColor: "var(--nav-bg)",
+    color: "var(--nav-text)"
+  },
+  hover: {
+    width: 144,
+    backgroundColor: "var(--nav-hover-bg)",
+    color: "var(--nav-hover-text)"
+  }
 };
 
 const labelVariants = {
@@ -22,7 +30,7 @@ export default function FloatingNavItem({ item, Icon }) {
             whileHover="hover"
             variants={itemVariants}
             transition={{ type: "tween", duration: 0.15, ease: "easeOut" }}
-            className={`absolute right-0 top-0 h-12 rounded-full shadow-lg border border-zinc-700/60 transition-all duration-150 origin-right flex items-center ${
+            className={`absolute right-0 top-0 h-12 rounded-full shadow-lg border border-[color:var(--nav-border)] transition-all duration-150 origin-right flex items-center ${
               isActive ? "shadow-yellow-500/30" : ""
             }`}
           >
@@ -37,7 +45,7 @@ export default function FloatingNavItem({ item, Icon }) {
             </motion.div>
             <span className="absolute right-0 top-0 w-12 h-12 flex items-center justify-center">
               <span className="absolute inset-0 rounded-full bg-yellow-400/30 blur-[10px] transition-opacity duration-150 group-hover:opacity-80" />
-              <span className="absolute inset-0 rounded-full bg-zinc-900/60" />
+              <span className="absolute inset-0 rounded-full bg-[color:var(--nav-icon-bg)]" />
               <Icon className="relative text-xl" />
             </span>
           </motion.div>
