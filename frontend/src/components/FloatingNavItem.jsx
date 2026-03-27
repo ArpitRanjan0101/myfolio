@@ -22,7 +22,7 @@ export default function FloatingNavItem({ item, Icon }) {
             whileHover="hover"
             variants={itemVariants}
             transition={{ type: "spring", stiffness: 360, damping: 28 }}
-            className={`absolute right-0 top-0 h-12 rounded-full overflow-hidden shadow-lg border border-zinc-700/60 transition-all duration-200 origin-right ${
+            className={`absolute right-0 top-0 h-12 rounded-full shadow-lg border border-zinc-700/60 transition-all duration-200 origin-right ${
               isActive ? "shadow-yellow-500/30" : ""
             }`}
           >
@@ -33,8 +33,10 @@ export default function FloatingNavItem({ item, Icon }) {
             >
               {item.name}
             </motion.span>
-            <span className="absolute right-0 top-0 w-12 h-12 flex items-center justify-center rounded-full bg-zinc-900/60 shadow-[0_0_14px_rgba(250,204,21,0.35)] transition-colors duration-200 group-hover:bg-black/20 group-hover:shadow-[0_0_18px_rgba(250,204,21,0.5)]">
-              <Icon className="text-xl" />
+            <span className="absolute right-0 top-0 w-12 h-12 flex items-center justify-center">
+              <span className="absolute inset-0 rounded-full bg-yellow-400/30 blur-[10px] transition-opacity duration-200 group-hover:opacity-80" />
+              <span className="absolute inset-0 rounded-full bg-zinc-900/60" />
+              <Icon className="relative text-xl text-black" />
             </span>
           </motion.div>
         </div>
