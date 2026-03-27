@@ -2,8 +2,8 @@ import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const itemVariants = {
-  rest: { width: 48 },
-  hover: { width: 132 }
+  rest: { width: 48, backgroundColor: "rgba(39,39,42,0.9)", color: "#e4e4e7" },
+  hover: { width: 144, backgroundColor: "#facc15", color: "#0b0b0b" }
 };
 
 const labelVariants = {
@@ -13,30 +13,28 @@ const labelVariants = {
 
 export default function FloatingNavItem({ item, Icon }) {
   return (
-    <NavLink to={item.path} className="block w-32">
+    <NavLink to={item.path} className="group block w-36">
       {({ isActive }) => (
-        <div className="relative h-12 w-32">
+        <div className="relative h-12 w-36">
           <motion.div
             initial="rest"
             animate="rest"
             whileHover="hover"
             variants={itemVariants}
-            transition={{ type: "spring", stiffness: 420, damping: 30 }}
-            className={`absolute right-0 top-0 h-12 rounded-full overflow-hidden shadow-lg border border-zinc-700/60 transition-all duration-300 origin-right ${
-              isActive
-                ? "bg-yellow-500 text-black shadow-yellow-500/30"
-                : "bg-zinc-800/90 text-zinc-200"
+            transition={{ type: "spring", stiffness: 360, damping: 28 }}
+            className={`absolute right-0 top-0 h-12 rounded-full overflow-hidden shadow-lg border border-zinc-700/60 transition-all duration-200 origin-right ${
+              isActive ? "shadow-yellow-500/30" : ""
             }`}
           >
             <motion.span
               variants={labelVariants}
-              transition={{ duration: 0.2 }}
-              className="whitespace-nowrap pl-4 pr-14 text-sm font-medium"
+              transition={{ duration: 0.15 }}
+              className="whitespace-nowrap pl-4 pr-14 text-sm font-semibold leading-none"
             >
               {item.name}
             </motion.span>
-            <span className="absolute right-0 top-0 w-12 h-12 flex items-center justify-center">
-              <Icon className="text-lg" />
+            <span className="absolute right-0 top-0 w-12 h-12 flex items-center justify-center rounded-full bg-zinc-900/60 transition-colors duration-200 group-hover:bg-black/20">
+              <Icon className="text-xl" />
             </span>
           </motion.div>
         </div>

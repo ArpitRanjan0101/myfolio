@@ -57,11 +57,11 @@ export default function Hero() {
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
             <Link
               to="/about"
-              className="group relative inline-flex min-w-[260px] items-center overflow-hidden rounded-full border border-yellow-400/70 bg-zinc-900/40 px-14 py-2 text-base font-semibold uppercase tracking-widest text-white shadow-lg shadow-black/40"
+              className="group relative inline-flex min-w-[260px] items-center overflow-hidden rounded-full border border-yellow-400/70 bg-zinc-900/40 px-14 py-2 text-base font-semibold uppercase tracking-widest text-white shadow-lg shadow-black/40 transition-colors duration-200 hover:text-black"
             >
-              <span className="absolute inset-0 -translate-x-full bg-yellow-400 transition-transform duration-300 group-hover:translate-x-0" />
-              <span className="relative z-10">About Me</span>
-              <span className="relative z-10 ml-auto flex h-10 w-10 items-center justify-center rounded-full bg-yellow-400 text-black transition-transform duration-300 group-hover:translate-x-1">
+              <span className="absolute inset-0 -translate-x-full bg-yellow-400 transition-transform duration-200 ease-out group-hover:translate-x-0" />
+              <span className="relative z-10 leading-none">About Me</span>
+              <span className="relative z-10 ml-auto flex h-10 w-10 items-center justify-center rounded-full bg-yellow-400 text-black transition-transform duration-200 ease-out group-hover:translate-x-1">
                 →
               </span>
             </Link>
