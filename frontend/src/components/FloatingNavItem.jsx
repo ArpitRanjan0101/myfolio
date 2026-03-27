@@ -13,7 +13,7 @@ const labelVariants = {
 
 export default function FloatingNavItem({ item, Icon }) {
   return (
-    <NavLink to={item.path} className="block">
+    <NavLink to={item.path} className="flex justify-end">
       {({ isActive }) => (
         <motion.div
           initial="rest"
@@ -21,7 +21,7 @@ export default function FloatingNavItem({ item, Icon }) {
           whileHover="hover"
           variants={itemVariants}
           transition={{ type: "spring", stiffness: 420, damping: 30 }}
-          className={`h-12 rounded-full overflow-hidden flex items-center gap-2 shadow-lg border border-zinc-700/60 transition-all duration-300 ${
+          className={`h-12 rounded-full overflow-hidden flex items-center gap-2 shadow-lg border border-zinc-700/60 transition-all duration-300 origin-right ${
             isActive
               ? "bg-yellow-500 text-black shadow-yellow-500/30"
               : "bg-zinc-800/90 text-zinc-200"
