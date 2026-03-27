@@ -9,6 +9,7 @@ services:
       - /app/node_modules
     environment:
       - CHOKIDAR_USEPOLLING=true
+      - CHOKIDAR_INTERVAL=1000
       - VITE_API_URL=http://localhost:4000
     depends_on:
       - backend
@@ -27,6 +28,9 @@ services:
       - ADMIN_EMAIL=${ADMIN_EMAIL}
       - ADMIN_PASSWORD=${ADMIN_PASSWORD}
       - JWT_SECRET=${JWT_SECRET}
+      - CHOKIDAR_USEPOLLING=true
+      - CHOKIDAR_INTERVAL=1000
+      - NODEMON_LEGACY_WATCH=1
     depends_on:
       - mongo
 
