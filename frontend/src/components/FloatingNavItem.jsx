@@ -7,8 +7,8 @@ const itemVariants = {
 };
 
 const labelVariants = {
-  rest: { opacity: 0, x: -8 },
-  hover: { opacity: 1, x: 0 }
+  rest: { opacity: 0, maxWidth: 0 },
+  hover: { opacity: 1, maxWidth: 96 }
 };
 
 export default function FloatingNavItem({ item, Icon }) {
@@ -26,15 +26,19 @@ export default function FloatingNavItem({ item, Icon }) {
               isActive ? "shadow-yellow-500/30" : ""
             }`}
           >
-            <motion.span
+            <motion.div
               variants={labelVariants}
-              transition={{ duration: 0.12 }}
-              className="whitespace-nowrap pl-4 pr-14 text-sm font-semibold leading-none flex items-center h-full"
+              transition={{ duration: 0.12, ease: "easeOut" }}
+              className="overflow-hidden flex items-center h-full"
             >
-              {item.name}
-            </motion.span>
-            <span className="absolute right-0 top-0 w-12 h-12 flex items-center justify-center rounded-full bg-zinc-900/60 drop-shadow-[0_0_10px_rgba(250,204,21,0.4)] transition-[background-color,filter] duration-200 group-hover:bg-black/20 group-hover:drop-shadow-[0_0_14px_rgba(250,204,21,0.6)]">
-              <Icon className="text-xl" />
+              <span className="whitespace-nowrap pl-4 pr-14 text-sm font-semibold leading-none">
+                {item.name}
+              </span>
+            </motion.div>
+            <span className="absolute right-0 top-0 w-12 h-12 flex items-center justify-center">
+              <span className="absolute inset-0 rounded-full bg-yellow-400/30 blur-[10px] transition-opacity duration-150 group-hover:opacity-80" />
+              <span className="absolute inset-0 rounded-full bg-zinc-900/60" />
+              <Icon className="relative text-xl" />
             </span>
           </motion.div>
         </div>
