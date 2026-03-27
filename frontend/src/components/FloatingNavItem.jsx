@@ -33,7 +33,7 @@ export default function FloatingNavItem({ item, Icon }) {
             >
               {item.name}
             </motion.span>
-            <span className="absolute right-0 top-0 w-12 h-12 flex items-center justify-center rounded-full bg-zinc-900/60 transition-colors duration-200 group-hover:bg-black/20">
+            <span className="absolute right-0 top-0 w-12 h-12 flex items-center justify-center rounded-full bg-zinc-900/60 shadow-[0_0_14px_rgba(250,204,21,0.35)] transition-colors duration-200 group-hover:bg-black/20 group-hover:shadow-[0_0_18px_rgba(250,204,21,0.5)]">
               <Icon className="text-xl" />
             </span>
           </motion.div>
