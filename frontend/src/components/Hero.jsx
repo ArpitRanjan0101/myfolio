@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import HeroRouteBackground from "./HeroRouteBackground.jsx";
 
 const textVariants = {
   hidden: { opacity: 0, y: 18 },
@@ -8,8 +9,9 @@ const textVariants = {
 
 export default function Hero() {
   return (
-    <section className="grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] items-center">
-      <div className="relative">
+    <section className="relative grid gap-12 overflow-hidden lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] items-center">
+      <HeroRouteBackground />
+      <div className="relative z-10">
         <div className="absolute -left-6 -top-6 h-28 w-28 rounded-2xl bg-yellow-500" />
         <div className="absolute -left-10 bottom-6 h-20 w-20 rounded-2xl bg-yellow-400/60" />
         <div className="relative z-10 -translate-x-8 md:-translate-x-12">
@@ -21,7 +23,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="space-y-6">
+      <div className="relative z-10 space-y-6">
         <motion.div
           variants={textVariants}
           initial="hidden"
@@ -62,7 +64,7 @@ export default function Hero() {
               <span className="absolute inset-0 -translate-x-full bg-yellow-400 transition-transform duration-200 ease-out group-hover:translate-x-0" />
               <span className="relative z-10 leading-none">About Me</span>
               <span className="relative z-10 ml-auto flex h-10 w-10 items-center justify-center rounded-full bg-yellow-400 text-black transition-transform duration-200 ease-out group-hover:translate-x-1">
-                →
+                {"\u2192"}
               </span>
             </Link>
           </motion.div>
