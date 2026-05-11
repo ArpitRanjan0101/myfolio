@@ -38,7 +38,7 @@ function AdminLogin({ onLogin }) {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
-      <div className="mx-auto flex min-h-screen max-w-lg items-center px-6">
+      <div className="mx-auto flex min-h-screen max-w-lg items-start px-6 py-16 sm:py-24">
         <form
           onSubmit={handleSubmit}
           className="w-full rounded-3xl border border-white/10 bg-white/5 p-8"
