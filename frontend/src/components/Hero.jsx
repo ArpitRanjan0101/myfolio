@@ -13,7 +13,7 @@ export default function Hero() {
     <section className="relative grid gap-12 overflow-hidden items-center lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
       <HeroRouteBackground />
 
-      <div className="relative z-10 space-y-6">
+      <div className="relative z-10 space-y-6 order-1 lg:order-2">
         <motion.div
           variants={textVariants}
           initial="hidden"
@@ -61,10 +61,10 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <div className="relative z-10 flex justify-center lg:justify-end">
+      <div className="relative z-10 flex justify-center lg:justify-start order-2 lg:order-1">
         <div className="relative">
-          <div className="absolute -right-6 -top-6 h-28 w-28 rounded-2xl bg-yellow-500" />
-          <div className="absolute -right-10 bottom-6 h-20 w-20 rounded-2xl bg-yellow-400/60" />
+          <div className="absolute -left-6 -top-6 h-28 w-28 rounded-2xl bg-yellow-500" />
+          <div className="absolute -left-10 bottom-6 h-20 w-20 rounded-2xl bg-yellow-400/60" />
 
           <motion.div
             initial={{ opacity: 0, y: 14, scale: 0.98 }}
