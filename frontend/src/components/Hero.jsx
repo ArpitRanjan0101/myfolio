@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import HeroRouteBackground from "./HeroRouteBackground.jsx";
+import heroDummy from "../assets/hero-dummy.svg";
 
 const textVariants = {
   hidden: { opacity: 0, y: 18 },
@@ -9,7 +10,7 @@ const textVariants = {
 
 export default function Hero() {
   return (
-    <section className="relative grid gap-12 overflow-hidden items-center">
+    <section className="relative grid gap-12 overflow-hidden items-center lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
       <HeroRouteBackground />
 
       <div className="relative z-10 space-y-6">
@@ -58,6 +59,37 @@ export default function Hero() {
             </Link>
           </motion.div>
         </motion.div>
+      </div>
+
+      <div className="relative z-10 flex justify-center lg:justify-end">
+        <div className="relative">
+          <div className="absolute -right-6 -top-6 h-28 w-28 rounded-2xl bg-yellow-500" />
+          <div className="absolute -right-10 bottom-6 h-20 w-20 rounded-2xl bg-yellow-400/60" />
+
+          <motion.div
+            initial={{ opacity: 0, y: 14, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.05 }}
+          >
+            <motion.div
+              animate={{ y: [0, -10, 0], rotate: [0, 1.5, 0] }}
+              transition={{ duration: 5.5, ease: "easeInOut", repeat: Infinity }}
+              className="relative w-[280px] h-[280px] md:w-[360px] md:h-[360px] lg:w-[420px] lg:h-[420px]"
+            >
+              <div
+                className="absolute inset-0 rounded-3xl bg-zinc-950/70 border border-zinc-800 shadow-[0_0_60px_rgba(250,204,21,0.18)] overflow-hidden"
+              >
+                <img
+                  src={heroDummy}
+                  alt="Hero preview"
+                  className="h-full w-full object-cover opacity-95"
+                  draggable="false"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-black/35 via-transparent to-yellow-400/15" />
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
