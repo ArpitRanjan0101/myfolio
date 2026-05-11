@@ -9,19 +9,8 @@ const textVariants = {
 
 export default function Hero() {
   return (
-    <section className="relative grid gap-12 overflow-hidden lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] items-center">
+    <section className="relative grid gap-12 overflow-hidden items-center">
       <HeroRouteBackground />
-      <div className="relative z-10">
-        <div className="absolute -left-6 -top-6 h-28 w-28 rounded-2xl bg-yellow-500" />
-        <div className="absolute -left-10 bottom-6 h-20 w-20 rounded-2xl bg-yellow-400/60" />
-        <div className="relative z-10 -translate-x-8 md:-translate-x-12">
-          <div className="rounded-2xl bg-zinc-950/80 border border-zinc-800 shadow-[0_0_50px_rgba(250,204,21,0.15)] overflow-hidden">
-            <div className="h-[360px] md:h-[520px] flex items-center justify-center text-zinc-500 text-sm">
-              Add hero image in admin panel
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div className="relative z-10 space-y-6">
         <motion.div
