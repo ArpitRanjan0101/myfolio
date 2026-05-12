@@ -49,13 +49,15 @@ export default function Hero() {
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
             <Link
               to="/about"
-              className="group relative inline-flex min-w-[260px] items-center overflow-hidden rounded-full border border-yellow-400/70 bg-zinc-900/40 px-14 py-2 text-base font-semibold uppercase tracking-widest text-white shadow-lg shadow-black/40 transition-colors duration-200 hover:text-black"
+              className="group relative inline-flex min-w-[280px] items-center justify-center overflow-hidden rounded-full border border-yellow-400/70 bg-zinc-900/40 py-2.5 pl-16 pr-10 text-base font-semibold uppercase tracking-widest text-white shadow-lg shadow-black/40 transition-colors duration-200 hover:text-black"
             >
               <span className="absolute inset-0 -translate-x-full bg-yellow-400 transition-transform duration-200 ease-out group-hover:translate-x-0" />
-              <span className="relative z-10 leading-none">About Me</span>
-              <span className="relative z-10 ml-auto flex h-10 w-10 items-center justify-center rounded-full bg-yellow-400 text-black transition-transform duration-200 ease-out group-hover:translate-x-1">
-                {"\u2192"}
+              <span className="absolute left-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-yellow-400 text-black transition-all duration-300 ease-out group-hover:left-[calc(100%-3.5rem)]">
+                <span className="transition-transform duration-300 ease-out group-hover:rotate-180">
+                  {"\u2190"}
+                </span>
               </span>
+              <span className="relative z-10 leading-none">About Me</span>
             </Link>
           </motion.div>
         </motion.div>
