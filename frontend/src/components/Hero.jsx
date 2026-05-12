@@ -10,7 +10,7 @@ const textVariants = {
 
 export default function Hero() {
   return (
-    <section className="relative grid gap-12 overflow-hidden items-center lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+    <section className="relative grid gap-12 overflow-hidden items-center pt-10 sm:pt-14 lg:pt-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
       <HeroRouteBackground />
 
       <div className="relative z-10 space-y-6 order-1 lg:order-2">
@@ -63,7 +63,7 @@ export default function Hero() {
 
       <div className="relative z-10 flex justify-center lg:justify-start order-2 lg:order-1">
         <div className="relative">
-          <div className="absolute -left-6 -top-6 h-28 w-28 rounded-2xl bg-yellow-500" />
+          <div className="absolute -left-6 top-4 sm:-top-6 h-28 w-28 rounded-2xl bg-yellow-500" />
           <div className="absolute -left-10 bottom-6 h-20 w-20 rounded-2xl bg-yellow-400/60" />
 
           <motion.div
